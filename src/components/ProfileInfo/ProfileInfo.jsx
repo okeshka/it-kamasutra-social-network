@@ -1,0 +1,18 @@
+import React from 'react';
+import s from './ProfileInfo.module.css';
+
+const ProfileInfo = props => {
+    return (
+        <div>
+            <div>
+                <img 
+                src = "https://pix10.agoda.net/hotelImages/909036/-1/d7f785d78ec28000c28944ba6e183433.jpg?s=1024x768"  alt = "sea"/>
+            </div>  
+            <div className = {s.descriptionBlock}>
+                ava + description
+            </div>
+        </div>
+    )
+}
+
+export default ProfileInfo;
