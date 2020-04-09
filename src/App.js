@@ -18,7 +18,7 @@ let {addPost, updateNewPostText} = props;
         <Navbar />
         <div className = "app-wrapper-content">
           <Route path = '/dialogs' render = { () => <Dialogs dialogs = {dialogs} messages = {messages}  /> } />
-   <Route path = '/profile' render = { () => <Profile posts = {posts} addPost = {addPost} 
+          <Route path = '/profile' render = { () => <Profile posts = {posts} addPost = {addPost} 
                                       newPostText = {newPostText} updateNewPostText = {updateNewPostText} /> } /> 
         </div>
       </div>
