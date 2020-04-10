@@ -9,7 +9,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 function App( props ) {
 let {posts, newPostText} = props.state.profilePage;
 let {messages, dialogs} = props.state.dialogsPage;
-let {addPost, updateNewPostText} = props;
+let {dispatch} = props;
 
    return (
     <BrowserRouter>
@@ -18,8 +18,8 @@ let {addPost, updateNewPostText} = props;
         <Navbar />
         <div className = "app-wrapper-content">
           <Route path = '/dialogs' render = { () => <Dialogs dialogs = {dialogs} messages = {messages}  /> } />
-          <Route path = '/profile' render = { () => <Profile posts = {posts} addPost = {addPost} 
-                                      newPostText = {newPostText} updateNewPostText = {updateNewPostText} /> } /> 
+          <Route path = '/profile' render = { () => <Profile posts = {posts} dispatch = {dispatch} 
+                                                        newPostText = {newPostText} /> } /> 
         </div>
       </div>
     </BrowserRouter>
