@@ -2,22 +2,18 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import DialogsItem from './DialogsItem/DialogsItem';
 import Message from './Message/Message';
+import {updateNewMessageBodyCreator, sendMessageCreator} from '../../redux/dialogs-reducer';
 
-const Dialogs = ({dialogs, messages}) => {
+const Dialogs = ({dialogs, messages, newMessageBody, dispatch}) => {
 
-    // let dialogs = [
-    //     {id: 1, name: 'Oleshych'}, 
-    //     {id: 2, name: 'Alex'}, 
-    //     {id:3, name: 'Helga'}, 
-    //     {id:4, name: 'Perdak'},
-    //     {id:5, name: 'Cherdak'}
-    // ];
+    let onMessageClick = () => {
+        dispatch(sendMessageCreator());
+    }
+    
+    let onNewMessageChange = (event) => {
+        dispatch(updateNewMessageBodyCreator(event.target.value));
+    };
 
-    // let messages = [
-    //     {id: 1, message: 'Hi'}, 
-    //     {id: 2, message: 'Pruvet'}, 
-    //     {id:3, message: 'Yooo'}, 
-    // ];
     let dialogsElements = dialogs
         .map((number) => <DialogsItem key = {number.id} name = {number.name} id = {number.id}/>
     );
@@ -29,7 +25,15 @@ const Dialogs = ({dialogs, messages}) => {
                 { dialogsElements }  
             </div>
             <div className = {s.messages}>
-                { messagesElements }
+                <div>
+                    { messagesElements }
+                </div>
+                <div>
+                    <textarea placeholder = "Hyauk" value = {newMessageBody} onChange = {onNewMessageChange}/>
+                </div>
+                <div>
+                    <button type = "button" onClick = {onMessageClick}>Жми меня</button>
+                </div>
             </div>
         </div>
     )

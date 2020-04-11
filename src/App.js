@@ -8,7 +8,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 function App( props ) {
 let {posts, newPostText} = props.state.profilePage;
-let {messages, dialogs} = props.state.dialogsPage;
+let {messages, dialogs, newMessageBody} = props.state.dialogsPage;
 let {dispatch} = props;
 
    return (
@@ -17,7 +17,8 @@ let {dispatch} = props;
         <Header />
         <Navbar />
         <div className = "app-wrapper-content">
-          <Route path = '/dialogs' render = { () => <Dialogs dialogs = {dialogs} messages = {messages}  /> } />
+          <Route path = '/dialogs' render = { () => <Dialogs newMessageBody = {newMessageBody} dialogs = {dialogs} 
+                                                        dispatch = {dispatch} messages = {messages}  /> } />
           <Route path = '/profile' render = { () => <Profile posts = {posts} dispatch = {dispatch} 
                                                         newPostText = {newPostText} /> } /> 
         </div>
