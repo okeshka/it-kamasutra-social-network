@@ -1,9 +1,9 @@
 import React from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
-import {updateNewPostTextActionCreater, addPostActionCreator} from '../../../redux/profile-reducer';
 
-const MyPosts = ({posts, dispatch, newPostText}) => {
+
+const MyPosts = ({posts, updateNewPostText, addPost, newPostText}) => {
 
     let postsElement =  posts.map ( number => 
         <Post key = {number.id} message = {number.message} likesCount = {number.likesCount} />
@@ -11,11 +11,12 @@ const MyPosts = ({posts, dispatch, newPostText}) => {
     let newPost = React.createRef();
 
     let makePost = () => {
-        dispatch(addPostActionCreator());
+        addPost();
     };
 
     let onPostchange = () => {
-        dispatch(updateNewPostTextActionCreater(newPost.current.value));
+        let text = newPost.current.value;
+        updateNewPostText(text);
     };
 
             return (
