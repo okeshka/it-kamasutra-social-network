@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import store from './redux/redux-store';
 import App from './App';
-import {Provider} from './StoreContext';
+import {Provider} from 'react-redux';
 
 let renderEntireTree = (state) => {
   //console.log(state);
