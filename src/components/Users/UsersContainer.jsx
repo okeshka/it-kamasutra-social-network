@@ -1,29 +1,27 @@
 import React from 'react';
-import Axios from 'axios';
 import Users from './Users';
 import {connect} from 'react-redux';
 import { followAC, unfollowAC, setUserAC, setPageAC, setTotallUsersCountAC, setPreloadUserAC } from '../../redux/users-reducer';
 import Preload from '../common/preloader/Preloader';
+import { usersAPI } from '../../api/api';
 
 class UsersAPIComponent extends React.Component {
  
     componentDidMount() {
-        Axios
-            .get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-            .then(response => {
+        usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
+            .then(data => {
                 this.props.setPreloadUser(false);
-                this.props.setUser(response.data.items);
-                this.props.setTotalUsers(response.data.totalCount)}
+                this.props.setUser(data.items);
+                this.props.setTotalUsers(data.totalCount)}
             )
     };
 
     onPageChange = (page) => {
         this.props.setPage(page);
         this.props.setPreloadUser(true);
-        Axios
-            .get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`)
-            .then(response => {this.props.setPreloadUser(false);
-                this.props.setUser(response.data.items)}
+        usersAPI.getUsers(page, this.props.pageSize)
+            .then(data => {this.props.setPreloadUser(false);
+                this.props.setUser(data.items)}
             );
     };
     render() {
