@@ -1,7 +1,7 @@
 import React from 'react';
 import Users from './Users';
 import {connect} from 'react-redux';
-import { followAC, unfollowAC, setUserAC, setPageAC, setTotallUsersCountAC, setPreloadUserAC } from '../../redux/users-reducer';
+import { followAC, unfollowAC, setUserAC, setPageAC, setTotallUsersCountAC, setPreloadUserAC, setFollowingInProgressAC} from '../../redux/users-reducer';
 import Preload from '../common/preloader/Preloader';
 import { usersAPI } from '../../api/api';
 
@@ -34,6 +34,8 @@ class UsersAPIComponent extends React.Component {
                         users = {this.props.users} 
                         follow = {this.props.follow} 
                         unfollow = {this.props.unfollow}
+                        setFollowingInProgress = {this.props.setFollowingInProgress}
+                        isFollowingInProgress = {this.props.isFollowingInProgress}
                     />
                 </>
     }
@@ -45,7 +47,8 @@ let mapStateToProps = state => {
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching
+        isFetching: state.usersPage.isFetching,
+        isFollowingInProgress: state.usersPage.followingInProgress,
     }
 }
 
@@ -68,6 +71,9 @@ let mapDispatchToProps = dispatch => {
         },
         setPreloadUser: preloader => {
             dispatch(setPreloadUserAC(preloader))
+        },
+        setFollowingInProgress: (following, userId) => {
+            dispatch(setFollowingInProgressAC(following, userId))
         }
     }
 }
