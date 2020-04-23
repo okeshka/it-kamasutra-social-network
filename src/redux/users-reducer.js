@@ -99,17 +99,17 @@ export const getUsers = (currentPage, pageSize) => dispatch => {
 };
 
 export const follow = (userId) => dispatch => {
-    setFollowingInProgress(true, userId);
+    dispatch(setFollowingInProgress(true, userId));
     usersAPI.setFollow(userId)
-    .then(data => { if (data.resultCode === 0) unfollowSuccess(userId);
-    setFollowingInProgress(false, userId)})
+    .then(data => { if (data.resultCode === 0) dispatch(followSuccess(userId));
+        dispatch(setFollowingInProgress(false, userId))})
 };
 
 export const unfollow = (userId) => dispatch => {
-    setFollowingInProgress(true, userId);
+    dispatch(setFollowingInProgress(true, userId));
     usersAPI.setUnFollow(userId)
-    .then(data => { if (data.resultCode === 0) unfollowSuccess(userId);
-    setFollowingInProgress(false, userId)})
+    .then(data => { if (data.resultCode === 0) dispatch(unfollowSuccess(userId));
+        dispatch(setFollowingInProgress(false, userId))})
 };
 
 export default usersReducer;

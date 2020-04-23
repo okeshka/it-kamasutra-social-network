@@ -1,30 +1,7 @@
-//import React from 'react';
-import {updateNewPostTextActionCreater, addPostActionCreator} from '../../../redux/profile-reducer';
+import {updateNewPostText, addPost} from '../../../redux/profile-reducer';
 import MyPosts from './MyPosts';
 import { connect } from 'react-redux';
 
-// const MyPostsContainer = () => {
-//     return <StoreContext.Consumer> 
-//         {   // фигурная скобка обязательно с новой строки
-//             (store) => {
-//                 let state = store.getState().profilePage;
-//                 let makePost = () => {
-//                     store.dispatch(addPostActionCreator());
-//                 };
-
-//                 let onPostchange = text => {
-//                     store.dispatch(updateNewPostTextActionCreater(text));
-//                 };
-
-//                 return (
-//                     <MyPosts updateNewPostText = {onPostchange} addPost = {makePost} 
-//                         posts = {state.posts} newPostText = {state.newPostText}
-//                     />
-//                 )
-//             }
-//         }
-//     </ StoreContext.Consumer>
-// }
 
 const mapStateToProps = state => {
     return {
@@ -33,17 +10,6 @@ const mapStateToProps = state => {
     }
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        updateNewPostText: text => {
-            dispatch(updateNewPostTextActionCreater(text))
-        },
-        addPost: () => {
-            dispatch(addPostActionCreator())
-        },
-    }    
-}
-
-const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
+const MyPostsContainer = connect(mapStateToProps, {updateNewPostText, addPost})(MyPosts);
 
 export default MyPostsContainer;
