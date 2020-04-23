@@ -1,28 +1,19 @@
 import React from 'react';
 import Users from './Users';
 import {connect} from 'react-redux';
-import { followAC, unfollowAC, setUserAC, setPageAC, setTotallUsersCountAC, setPreloadUserAC, setFollowingInProgressAC} from '../../redux/users-reducer';
+import { follow, unfollow, setPage, setPreloadUser, 
+        setFollowingInProgress, getUsers } from '../../redux/users-reducer';
 import Preload from '../common/preloader/Preloader';
-import { usersAPI } from '../../api/api';
+
 
 class UsersAPIComponent extends React.Component {
  
     componentDidMount() {
-        usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
-            .then(data => {
-                this.props.setPreloadUser(false);
-                this.props.setUser(data.items);
-                this.props.setTotalUsers(data.totalCount)}
-            )
+        this.props.getUsers(this.props.currentPage, this.props.pageSize)
     };
 
     onPageChange = (page) => {
-        this.props.setPage(page);
-        this.props.setPreloadUser(true);
-        usersAPI.getUsers(page, this.props.pageSize)
-            .then(data => {this.props.setPreloadUser(false);
-                this.props.setUser(data.items)}
-            );
+        this.props.getUsers(page, this.props.pageSize)
     };
     render() {
         return <>
@@ -52,31 +43,7 @@ let mapStateToProps = state => {
     }
 }
 
-let mapDispatchToProps = dispatch => {
-    return {
-        follow: userId => {
-            dispatch(followAC(userId))
-        },
-        unfollow: userId => {
-            dispatch(unfollowAC(userId))
-        },
-        setUser: users => {
-            dispatch(setUserAC(users))
-        },
-        setPage: page => {
-            dispatch(setPageAC(page))
-        },
-        setTotalUsers: total => {
-            dispatch(setTotallUsersCountAC(total))
-        },
-        setPreloadUser: preloader => {
-            dispatch(setPreloadUserAC(preloader))
-        },
-        setFollowingInProgress: (following, userId) => {
-            dispatch(setFollowingInProgressAC(following, userId))
-        }
-    }
-}
-
-let UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersAPIComponent);
+let UsersContainer = connect(mapStateToProps, { setPreloadUser,
+                                                setPage,  setFollowingInProgress,
+                                                getUsers, follow, unfollow})(UsersAPIComponent);
 export default UsersContainer;
