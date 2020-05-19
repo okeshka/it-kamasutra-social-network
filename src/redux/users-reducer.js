@@ -1,6 +1,6 @@
 import { usersAPI } from '../api/api';
 
-const FOLLOW= "FOLLOW";
+const FOLLOW= "social-network/users-reducer/FOLLOW"; //redux-ducks
 const UNFOLLOW= "UNFOLLOW";
 const SET_USERS = "SET_USERS";
 const SET_PAGE = "SET_PAGE";
@@ -90,6 +90,7 @@ export const setFollowingInProgress = (following, userId) => ( {type: TOGGLE_IS_
 
 export const getUsers = (currentPage, pageSize) => dispatch => {
     dispatch(setPreloadUser(true));
+    dispatch(setPage(currentPage));
     usersAPI.getUsers(currentPage, pageSize)
             .then(data => {
                 dispatch(setPreloadUser(false));

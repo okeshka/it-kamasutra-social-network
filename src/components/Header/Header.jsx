@@ -8,7 +8,9 @@ const Header = (props) => {
         <img src = "https://img.pngio.com/capital-letter-z-transparent-png-stickpng-png-that-begins-with-letter-z-1271_1280.png" alt = "sociall network" />
         
         <div className = {s.loginBlock}>
-           {props.isAuth ? props.login : <NavLink to = {'/login'}>Login</NavLink>}
+           {props.isAuth ? <div>{props.login} <button onClick = {props.logout}>Выйти блин</button></div> : 
+                <NavLink to = {'/login'}>Login</NavLink>
+            }
         </div>
         </header>
     )
