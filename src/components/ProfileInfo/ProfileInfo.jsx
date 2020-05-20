@@ -3,18 +3,12 @@ import s from './ProfileInfo.module.css';
 import Preload from '../common/preloader/Preloader';
 import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 
-const ProfileInfo = props => {
-    if (!props.profile) return <Preload/>
+const ProfileInfo = ({profile, status, updateStatus}) => {
+    if (!profile) return <Preload/>
     return (
-        <div>
-            {/* <div>
-                <img 
-                src = "https://pix10.agoda.net/hotelImages/909036/-1/d7f785d78ec28000c28944ba6e183433.jpg?s=1024x768"  alt = "sea"/>
-            </div>   */}
-            <div className = {s.descriptionBlock}>
-                <img src = {props.profile.photos.large} alt = 'morda litsa'/>
-                <ProfileStatusWithHooks status = {props.status} updateStatus = {props.updateStatus}/>
-            </div>
+        <div className = {s.descriptionBlock}>
+            <img src = {profile.photos.large} alt = 'morda litsa'/>
+            <ProfileStatusWithHooks status = {status} updateStatus = {updateStatus}/>
         </div>
     )
 }

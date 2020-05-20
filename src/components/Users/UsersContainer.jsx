@@ -12,11 +12,13 @@ import {getUser, getPageSize, getTotalUsersCount,
 class UsersContainer extends React.Component {
  
     componentDidMount() {
-        this.props.getUsers(this.props.currentPage, this.props.pageSize)
+        const {currentPage, pageSize, getUsers} = this.props;
+        getUsers(currentPage, pageSize)
     };
 
     onPageChange = (page) => {
-        this.props.getUsers(page, this.props.pageSize)
+        const {pageSize, getUsers} = this.props;
+        getUsers(page, pageSize)
     };
     render() {
         return <>
