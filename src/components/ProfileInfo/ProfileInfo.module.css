@@ -1,3 +1,7 @@
 .descriptionBlock {
     padding: 10px;
 }
+
+img.avatar {
+    max-width: 200px;
+}

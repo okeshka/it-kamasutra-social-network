@@ -1,9 +1,10 @@
 import React, {Suspense} from 'react';
+import Preloader from '../common/Preloader/Preloader';
 
 const withLazyLoad = Component => {
     return (props) => (
-    <Suspense fallback = {<div>Loading.....</div>} {...props}>
-        <Component />
+    <Suspense fallback = {<Preloader />} >
+        <Component {...props}/>
     </Suspense>
     )}
 

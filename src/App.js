@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 //import DialogsContainer from './components/Dialogs/DialogsContainer';
-import {Route, withRouter, BrowserRouter } from 'react-router-dom';
+import {Route, withRouter, HashRouter } from 'react-router-dom';
 import UsersContainer from './components/Users/UsersContainer';
 //import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
@@ -10,7 +10,7 @@ import LoginPage from './components/Login/Login';
 import { Provider, connect } from 'react-redux';
 import { inisializedApp } from './redux/app-reducer';
 import { compose } from 'redux';
-import Preload from './components/common/preloader/Preloader';
+import Preload from './components/common/Preloader/Preloader';
 import store from './redux/redux-store';
 import withLazyLoad from './components/hoc/withLazyLoad';
 
@@ -51,9 +51,11 @@ const AppContainer = compose(withRouter, connect(mapStateToProps, {inisializedAp
 const SamuraiApp = props => {
   return (
     <Provider store = {store}>
-          <BrowserRouter>
+          <HashRouter > 
+            {/*For Github pages deploy with BrowserRouter basename = {process.env.PUBLIC_URL} for react-router, 
+            replace BrowserRouter with HashRouter, #anchor apperance*/}
             <AppContainer />
-          </BrowserRouter>
+          </HashRouter>
     </Provider>
   )
 }
