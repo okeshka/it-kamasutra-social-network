@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/it-kamasutra-social-network/static/css/main.94d337e0.chunk.css",
+    "main.js": "/it-kamasutra-social-network/static/js/main.79be8d03.chunk.js",
+    "main.js.map": "/it-kamasutra-social-network/static/js/main.79be8d03.chunk.js.map",
+    "runtime-main.js": "/it-kamasutra-social-network/static/js/runtime-main.32d6f436.js",
+    "runtime-main.js.map": "/it-kamasutra-social-network/static/js/runtime-main.32d6f436.js.map",
+    "static/js/2.fcb9c662.chunk.js": "/it-kamasutra-social-network/static/js/2.fcb9c662.chunk.js",
+    "static/js/2.fcb9c662.chunk.js.map": "/it-kamasutra-social-network/static/js/2.fcb9c662.chunk.js.map",
+    "static/css/3.669f3899.chunk.css": "/it-kamasutra-social-network/static/css/3.669f3899.chunk.css",
+    "static/js/3.c73b7dde.chunk.js": "/it-kamasutra-social-network/static/js/3.c73b7dde.chunk.js",
+    "static/js/3.c73b7dde.chunk.js.map": "/it-kamasutra-social-network/static/js/3.c73b7dde.chunk.js.map",
+    "static/css/4.d8bfee56.chunk.css": "/it-kamasutra-social-network/static/css/4.d8bfee56.chunk.css",
+    "static/js/4.a247372e.chunk.js": "/it-kamasutra-social-network/static/js/4.a247372e.chunk.js",
+    "static/js/4.a247372e.chunk.js.map": "/it-kamasutra-social-network/static/js/4.a247372e.chunk.js.map",
+    "index.html": "/it-kamasutra-social-network/index.html",
+    "precache-manifest.26039417983a2f20f7afb41fad225970.js": "/it-kamasutra-social-network/precache-manifest.26039417983a2f20f7afb41fad225970.js",
+    "service-worker.js": "/it-kamasutra-social-network/service-worker.js",
+    "static/css/3.669f3899.chunk.css.map": "/it-kamasutra-social-network/static/css/3.669f3899.chunk.css.map",
+    "static/css/4.d8bfee56.chunk.css.map": "/it-kamasutra-social-network/static/css/4.d8bfee56.chunk.css.map",
+    "static/css/main.94d337e0.chunk.css.map": "/it-kamasutra-social-network/static/css/main.94d337e0.chunk.css.map",
+    "static/js/2.fcb9c662.chunk.js.LICENSE.txt": "/it-kamasutra-social-network/static/js/2.fcb9c662.chunk.js.LICENSE.txt",
+    "static/media/loader.gif": "/it-kamasutra-social-network/static/media/loader.fa91e5de.gif",
+    "static/media/user.png": "/it-kamasutra-social-network/static/media/user.f8a15e74.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.32d6f436.js",
+    "static/js/2.fcb9c662.chunk.js",
+    "static/css/main.94d337e0.chunk.css",
+    "static/js/main.79be8d03.chunk.js"
+  ]
+}
